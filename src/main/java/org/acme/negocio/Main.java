@@ -19,7 +19,7 @@ public class Main implements QuarkusApplication {
     public int run(String... args) {
         System.out.println("Mensaje guia ------------------------------------");
 
-        Pedido pedido = new Pedido("María", "Steins;Gate tshirt", 18.80, "h123698745@gmail.com");
+        Pedido pedido = new Pedido("María", "Steins;Gate tshirt", 18.80, "h123698745@gmail.com", "0995706128");
         this.pedidoService.realizar(pedido);
         return 0;
     }

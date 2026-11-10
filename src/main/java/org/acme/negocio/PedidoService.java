@@ -2,13 +2,19 @@ package org.acme.negocio;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 @ApplicationScoped 
 public class PedidoService {
 
 
     @Inject
-    private MailService mailService;
+    @Named("correo")
+    private Notificacion notificacionCorreo;
+
+    @Inject
+    @Named("sms")
+    private Notificacion notificacionSMS;
 
     public void realizar(Pedido pedido) {
 
@@ -21,7 +27,8 @@ public class PedidoService {
         String asunto = "confirmación de pedido";
         String cuerpo = "Su pedido se ha realizado exitosamente";
 
-        this.mailService.enviar(pedido.getCorreo(), asunto, cuerpo);
+        this.notificacionCorreo.enviar(pedido.getCliente(), asunto, cuerpo);
 
+        this.notificacionSMS.enviar(pedido.getTelefono(), asunto, cuerpo);
     }
 }

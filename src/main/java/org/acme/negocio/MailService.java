@@ -1,15 +1,21 @@
 package org.acme.negocio;
 
+import jakarta.inject.Named;
 import jakarta.inject.Singleton;
 
 @Singleton
-public class MailService {
+@Named("correo")
+public class MailService implements Notificacion{
 
-    public void enviar(String correo, String asunto, String cuerpo) {
 
-        System.out.println("Enviando correo a: " + correo);
+    @Override
+    public void enviar(String destinatario, String asunto, String cuerpo) {
+
+        System.out.println("Construyendo correo...");
+        System.out.println("Enviando correo a: " + destinatario);
         System.out.println("Asunto: " + asunto  );
         System.out.println("Cuerpo: \n" + cuerpo);
+        System.out.println("Correo enviado correctamente");
     
     }
 
