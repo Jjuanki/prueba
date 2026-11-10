@@ -28,7 +28,9 @@ public class PedidoService {
         String cuerpo = "Su pedido se ha realizado exitosamente";
 
         this.notificacionCorreo.enviar(pedido.getCliente(), asunto, cuerpo);
-
-        this.notificacionSMS.enviar(pedido.getTelefono(), asunto, cuerpo);
+        
+        this.notificacionCorreo.setCantidad(this.notificacionCorreo.getCantidad() + 1);
+       
+        System.out.println("Cantidad de correos enviados en pedido: " + this.notificacionCorreo.getCantidad());
     }
 }

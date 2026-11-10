@@ -1,13 +1,16 @@
 package org.acme.negocio;
 
+import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Named;
 import jakarta.inject.Singleton;
 
-@Singleton
+@Dependent
 @Named("correo")
 public class MailService implements Notificacion{
 
 
+    private Integer cantidad = 0;    
+    
     @Override
     public void enviar(String destinatario, String asunto, String cuerpo) {
 
@@ -18,5 +21,15 @@ public class MailService implements Notificacion{
         System.out.println("Correo enviado correctamente");
     
     }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    
 
 }

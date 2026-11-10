@@ -18,4 +18,17 @@ public class SMSService implements Notificacion{
 
     }
 
+    @Override
+    public Integer getCantidad() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCantidad'");
+    }
+
+    @Override
+    public void setCantidad(Integer cantidad) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setCantidad'");
+    }
+
+
 }
