@@ -3,6 +3,7 @@ package org.acme.negocio.interceptors;
 import org.acme.negocio.AuditoriaService;
 import org.acme.negocio.Pedido;
 
+import jakarta.annotation.Priority;
 import jakarta.inject.Inject;
 import jakarta.interceptor.AroundInvoke;
 import jakarta.interceptor.Interceptor;
@@ -10,6 +11,8 @@ import jakarta.interceptor.InvocationContext;
 
 @Auditoria
 @Interceptor
+@Priority(Interceptor.Priority.APPLICATION + (1))
+
 public class AuditoriaInterceptor {
 
     @Inject
