@@ -2,7 +2,6 @@ package org.acme.negocio;
 
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Named;
-import jakarta.inject.Singleton;
 
 @Dependent
 @Named("correo")

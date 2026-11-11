@@ -1,5 +1,8 @@
 package org.acme.negocio;
 
+import org.acme.negocio.interceptors.Auditoria;
+import org.acme.negocio.interceptors.Entrada;
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -16,6 +19,8 @@ public class PedidoService {
     @Named("sms")
     private Notificacion notificacionSMS;
 
+    @Entrada
+    @Auditoria
     public void realizar(Pedido pedido) {
 
         System.out.println("Realizando pedido...");
